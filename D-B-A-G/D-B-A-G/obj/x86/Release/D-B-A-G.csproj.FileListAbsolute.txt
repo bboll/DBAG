@@ -1,0 +1,10 @@
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\SDL.dll
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\D-B-A-G.exe
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\D-B-A-G.pdb
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\Lidgren.Network.dll
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\MonoGame.Framework.dll
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\OpenTK.dll
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\Tao.Sdl.dll
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Release\ResolveAssemblyReference.cache
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Release\D-B-A-G.exe
+C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Release\D-B-A-G.pdb
