@@ -82,10 +82,7 @@ namespace D_B_A_G
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            Hero = new Player(this.Content.Load<Texture2D>("ninja"), 700, 300);
-            //OtherNinja = new CollisionObject(this.Content.Load<Texture2D>("ninja"), 300, 550);
-            //PushMe = new CollisionObject(this.Content.Load<Texture2D>("block"), 500, 420);
-            //testMap = new Map(this.Content.Load<Texture2D>("TestMap"), 0, 0);
+            Hero = new Player(this.Content.Load<Texture2D>("female_walkcycle"), 700, 300, true, true);
         }
 
         /// <summary>
@@ -108,83 +105,9 @@ namespace D_B_A_G
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            //Level 1
             SandboxLevel1.update();
-            //Change the hero's direction off keyboard input
-            //if (Keyboard.GetState().IsKeyDown(Keys.Left)) Hero.velocity.X = -1;
-            //if (Keyboard.GetState().IsKeyDown(Keys.Right)) Hero.velocity.X = 1;
-            //if (Keyboard.GetState().IsKeyDown(Keys.Up)) Hero.velocity.Y = -1;
-            //if (Keyboard.GetState().IsKeyDown(Keys.Down)) Hero.velocity.Y = 1;
 
-            //Stop moving after keys are released
-            //if (Keyboard.GetState().IsKeyUp(Keys.Left) && Keyboard.GetState().IsKeyUp(Keys.Right)) Hero.velocity.X = 0;
-            //if (Keyboard.GetState().IsKeyUp(Keys.Up) && Keyboard.GetState().IsKeyUp(Keys.Down)) Hero.velocity.Y = 0;
-
-            //Make the movement a constant speed (even on diagonals)
-            //if (Hero.velocity.X != 0 || Hero.velocity.Y != 0)
-            //{
-            //    Hero.velocity.Normalize();
-            //    Hero.velocity *= 4;
-            //}
-
-            //Move the other ninja
-            //OtherNinja.update();
-
-            //Update position before collision checking to prevent sticking
-            //Hero.update();
-
-            //Check collisions (should be easier later)
-            //if (Hero.collidesWith(OtherNinja)) OtherNinja.resolveCollision(Hero);
-            //if (Hero.collidesWith(PushMe)) PushMe.resolveCollision(Hero);
-            //if (PushMe.collidesWith(OtherNinja)) PushMe.resolveCollision(OtherNinja);
-
-            //Update the block's bounds
-            //PushMe.update();
-
-            //Map collisions
-            //testMap.resolveMap(ref Hero);
-            //testMap.resolveMap(ref PushMe);
-
-            //NPC Ninja map collision
-            //if ((OtherNinja.pos.X - OtherNinja.width / 2 < 0) || (testMap.collidesWith(OtherNinja) && OtherNinja.velocity.X < 0))
-            //{
-                //testMap.resolveMap(ref OtherNinja);
-                //OtherNinja.pos.X += 1;
-                //OtherNinja.velocity.Y = 1;
-                //if (OtherNinja.pos.Y > 400) OtherNinja.velocity.Y = -1;
-                //OtherNinja.velocity.X = 0;
-            //}
-            //else if ((OtherNinja.pos.X + OtherNinja.width / 2 > 1000) || (testMap.collidesWith(OtherNinja) && OtherNinja.velocity.X > 0))
-            //{
-                //testMap.resolveMap(ref OtherNinja);
-                //OtherNinja.pos.X -= 1;
-                //OtherNinja.velocity.Y = 1;
-            //    if (OtherNinja.pos.Y > 400) OtherNinja.velocity.Y = -1;
-            //    OtherNinja.velocity.X = 0;
-            //}
-            //if ((OtherNinja.pos.Y - OtherNinja.height / 2 < 0) || (testMap.collidesWith(OtherNinja) && OtherNinja.velocity.Y < 0))
-            //{
-            //    testMap.resolveMap(ref OtherNinja);
-            //    OtherNinja.pos.Y += 1;
-            //    OtherNinja.velocity.X = 1;
-            //    if (OtherNinja.pos.X > 500) OtherNinja.velocity.X = -1;
-            //    OtherNinja.velocity.Y = 0;
-            //}
-            //else if ((OtherNinja.pos.Y + OtherNinja.height / 2 > 800) || (testMap.collidesWith(OtherNinja) && OtherNinja.velocity.Y > 0))
-            //{
-            //    testMap.resolveMap(ref OtherNinja);
-            //    OtherNinja.pos.Y -= 1;
-            //    OtherNinja.velocity.X = 1;
-            //    if (OtherNinja.pos.X > 500) OtherNinja.velocity.X = -1;
-            //    OtherNinja.velocity.Y = 0;
-            //}
-
-            ////If all else fails, move the hero off the block or the ninja off it
-            //if (Hero.collidesWith(OtherNinja) && (Hero.pos.X + Hero.width / 2 > 1000 || Hero.pos.X - Hero.width / 2 < 0)) { OtherNinja.resolveCollision(Hero); OtherNinja.velocity *= -1; }
-            //if (Hero.collidesWith(PushMe) && (Hero.pos.X + Hero.width / 2 > 1000 || Hero.pos.X - Hero.width / 2 < 0)) PushMe.resolveCollision(Hero);
-            //if (PushMe.collidesWith(OtherNinja)) { OtherNinja.resolveCollision(PushMe); OtherNinja.velocity *= -1; }
-            //else if (Hero.collidesWith(PushMe) && Hero.collidesWith(OtherNinja)) { OtherNinja.resolveCollision(Hero); OtherNinja.velocity *= -1; }
-            //if (Hero.collidesWith(PushMe)) Hero.resolveCollision(PushMe);
-                 
             //Increment game timer
             base.Update(gameTime);
         }
@@ -199,11 +122,7 @@ namespace D_B_A_G
             spriteBatch.Begin();
 
             SandboxLevel1.draw(spriteBatch);
-            // TODO: Add your drawing code here
-            //testMap.draw(spriteBatch);
             Hero.draw(spriteBatch);
-            //OtherNinja.draw(spriteBatch);
-            //PushMe.draw(spriteBatch);
             
             spriteBatch.End();
             base.Draw(gameTime);

@@ -44,12 +44,22 @@ namespace D_B_A_G.Virtual
             isSolid = Solid;
             isAnimated = animated;
 
+            //Construct Sprite object
+            SpriteObj = new SpriteSheet(sprite, width, height);
+
+            if (isAnimated)
+            {
+                height = SpriteObj.m_spriteHeight;
+                width = SpriteObj.m_spriteWidth;
+            }
+
             //Set domain restrictions
             restrictDomain = false;
 
             //Set the center
             centerOffset.X = (-1) * (width / 2);
             centerOffset.Y = (-1) * (height / 2);
+
         }
         public CollisionObject(Texture2D Sprite, int X = 0, int Y = 0, bool Solid = true, bool animated = false)
         {
@@ -64,12 +74,19 @@ namespace D_B_A_G.Virtual
             //Set the sprite
             sprite = Sprite;
 
+            //Construct Sprite object
+            SpriteObj = new SpriteSheet(sprite, width, height);
+
+            if (isAnimated)
+            {
+                height = SpriteObj.m_spriteHeight;
+                width = SpriteObj.m_spriteWidth;
+            }
+
             //Set the center
             centerOffset.X = (-1) * (width / 2);
             centerOffset.Y = (-1) * (height / 2);
 
-            //Construct Sprite object
-            SpriteSheet SpriteObj = new SpriteSheet(sprite, width, height);
         }
 
         //===============================================================================================================Collision functions

@@ -13,7 +13,7 @@ namespace D_B_A_G.Characters
     public class Player : CollisionObject
     {
         //Constructors
-        public Player(Texture2D Sprite, int X = 0, int Y = 0, bool Solid = true)
+        public Player(Texture2D Sprite, int X = 0, int Y = 0, bool Solid = true, bool animated = false)
         {
             //Set basic elements
             height = Sprite.Bounds.Height;
@@ -23,13 +23,24 @@ namespace D_B_A_G.Characters
             velocity.X = 0;
             velocity.Y = 0;
             isSolid = Solid;
+            isAnimated = animated;
 
             //Set the sprite
             sprite = Sprite;
 
+            //Construct Sprite object
+            SpriteObj = new SpriteSheet(sprite, width, height);
+
+            if (isAnimated)
+            {
+                height = SpriteObj.m_spriteHeight;
+                width = SpriteObj.m_spriteWidth;
+            }
+
             //Set the center
             centerOffset.X = (-1) * (width / 2);
             centerOffset.Y = (-1) * (height / 2);
+
         }
 
         public new void update()
@@ -42,7 +53,7 @@ namespace D_B_A_G.Characters
             if (Keyboard.GetState().IsKeyDown(Keys.Right)) velocity.X = 1;
             if (Keyboard.GetState().IsKeyDown(Keys.Up)) velocity.Y = -1;
             if (Keyboard.GetState().IsKeyDown(Keys.Down)) velocity.Y = 1;
-
+            //base.update();
             //Stop moving after keys are released
             if (Keyboard.GetState().IsKeyUp(Keys.Left) && Keyboard.GetState().IsKeyUp(Keys.Right)) velocity.X = 0;
             if (Keyboard.GetState().IsKeyUp(Keys.Up) && Keyboard.GetState().IsKeyUp(Keys.Down)) velocity.Y = 0;
