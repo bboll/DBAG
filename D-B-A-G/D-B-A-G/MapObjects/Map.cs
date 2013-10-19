@@ -5,12 +5,12 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-using D_B_A_G.Abstract;
+using D_B_A_G.Virtual;
 using D_B_A_G.Characters;
 
 namespace D_B_A_G.MapObjects
 {
-    class Map : CollisionObject
+    public class Map : CollisionObject
     {
         public CollisionObject[] Walls;      //Array of collision points (walls, rocks, ponds, etc.)
         public int numWalls;                           //How many collision objects are in the array

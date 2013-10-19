@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using D_B_A_G.Characters;
 
-namespace D_B_A_G.Abstract
+namespace D_B_A_G.Virtual
 {
     public class CollisionObject
     {
@@ -15,6 +15,7 @@ namespace D_B_A_G.Abstract
         public Vector2 pos;
         public Vector2 velocity;
         public bool isSolid;
+        public bool isAnimated;
         public Texture2D sprite;
         public Vector4 domain;
         public bool restrictDomain;
@@ -31,8 +32,9 @@ namespace D_B_A_G.Abstract
             pos.X = 0;
             pos.Y = 0;
             isSolid = true;
+            isAnimated = false;
         }
-        public CollisionObject(int Height, int Width, int X = 0, int Y = 0, bool Solid = true)
+        public CollisionObject(int Height, int Width, int X = 0, int Y = 0, bool Solid = true, bool animated = false)
         {
             //Set basic elements
             height = Height;
@@ -40,6 +42,7 @@ namespace D_B_A_G.Abstract
             pos.X = X;
             pos.Y = Y;
             isSolid = Solid;
+            isAnimated = animated;
 
             //Set domain restrictions
             restrictDomain = false;
@@ -48,7 +51,7 @@ namespace D_B_A_G.Abstract
             centerOffset.X = (-1) * (width / 2);
             centerOffset.Y = (-1) * (height / 2);
         }
-        public CollisionObject(Texture2D Sprite, int X = 0, int Y = 0, bool Solid = true)
+        public CollisionObject(Texture2D Sprite, int X = 0, int Y = 0, bool Solid = true, bool animated = false)
         {
             //Set basic elements
             height = Sprite.Bounds.Height;
@@ -56,6 +59,7 @@ namespace D_B_A_G.Abstract
             pos.X = X;
             pos.Y = Y;
             isSolid = Solid;
+            isAnimated = animated;
 
             //Set the sprite
             sprite = Sprite;
@@ -147,8 +151,11 @@ namespace D_B_A_G.Abstract
         public void draw(SpriteBatch drawHere)
         {
             //possible just call animate
-            SpriteObj.animate(drawHere, velocity);
-            //drawHere.Draw(sprite, pos + centerOffset, Color.White);
+            drawHere.End();
+            drawHere.Begin();
+            if(isAnimated) SpriteObj.animate(drawHere, sprite, velocity, pos + centerOffset);
+            else drawHere.Draw(sprite, pos + centerOffset, Color.White);
+            drawHere.End();
         }
         public void resize(int Width, int Height)
         {

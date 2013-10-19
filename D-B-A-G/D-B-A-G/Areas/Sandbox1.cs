@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using D_B_A_G.Virtual;
 using D_B_A_G.Characters;
 using D_B_A_G.MapObjects;
 
@@ -25,10 +26,11 @@ namespace D_B_A_G.Areas
         }
 
         //Init the area
-        public void initialize()
+        public new void initialize()
         {
             //Call the parent init
             base.initialize();
+            loadContent();
 
             //Make the character stay on the screen
             ROOT.Hero.restrictDomain = true;
@@ -55,7 +57,7 @@ namespace D_B_A_G.Areas
         }
 
         //Update
-        public void update()
+        public new void update()
         {
             OtherNinja.update();
 
@@ -117,7 +119,7 @@ namespace D_B_A_G.Areas
         }
 
         //Draw
-        public void draw(SpriteBatch sprites)
+        public new void draw(SpriteBatch sprites)
         {
             //Call the parent draw
             base.draw(sprites);

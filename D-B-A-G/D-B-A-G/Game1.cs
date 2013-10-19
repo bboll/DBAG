@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
 #endregion
 
+using D_B_A_G.Virtual;
 using D_B_A_G.Characters;
 using D_B_A_G.MapObjects;
 using D_B_A_G.Areas;
@@ -25,7 +26,7 @@ namespace D_B_A_G
         
         //Put "global" objects here
         public Player Hero;
-        public AreaClass currentArea;
+        public Sandbox1 SandboxLevel1;
         //CollisionObject OtherNinja;
         //CollisionObject PushMe;
         //Map testMap;
@@ -38,7 +39,7 @@ namespace D_B_A_G
             Content.RootDirectory = "../../../Content";
 
             //Create the game starting points
-            currentArea = new Sandbox1(this.Content.Load<Texture2D>("TestMap"), this);
+            SandboxLevel1 = new Sandbox1(this.Content.Load<Texture2D>("TestMap"), this);
 
             //Set the screen size
             graphics.PreferredBackBufferHeight = 800;
@@ -54,7 +55,7 @@ namespace D_B_A_G
         protected override void Initialize()
         {  
             base.Initialize();
-            currentArea.initialize();
+            SandboxLevel1.initialize();
             //Make the character stay on the screen
             //Hero.restrictDomain = true;
             //Hero.domain = new Vector4(0, 0, 1000, 800);
@@ -107,7 +108,7 @@ namespace D_B_A_G
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            currentArea.update();
+            SandboxLevel1.update();
             //Change the hero's direction off keyboard input
             //if (Keyboard.GetState().IsKeyDown(Keys.Left)) Hero.velocity.X = -1;
             //if (Keyboard.GetState().IsKeyDown(Keys.Right)) Hero.velocity.X = 1;
@@ -197,10 +198,10 @@ namespace D_B_A_G
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
 
-            currentArea.draw(spriteBatch);
+            SandboxLevel1.draw(spriteBatch);
             // TODO: Add your drawing code here
             //testMap.draw(spriteBatch);
-            //Hero.draw(spriteBatch);
+            Hero.draw(spriteBatch);
             //OtherNinja.draw(spriteBatch);
             //PushMe.draw(spriteBatch);
             

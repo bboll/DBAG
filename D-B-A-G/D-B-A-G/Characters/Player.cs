@@ -6,11 +6,11 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-using D_B_A_G.Abstract;
+using D_B_A_G.Virtual;
 
 namespace D_B_A_G.Characters
 {
-    class Player : CollisionObject
+    public class Player : CollisionObject
     {
         //Constructors
         public Player(Texture2D Sprite, int X = 0, int Y = 0, bool Solid = true)
@@ -32,7 +32,7 @@ namespace D_B_A_G.Characters
             centerOffset.Y = (-1) * (height / 2);
         }
 
-        public void update()
+        public new void update()
         {
             //Call the generic update
             base.update();

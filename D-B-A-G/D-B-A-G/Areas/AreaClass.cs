@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-using D_B_A_G.Abstract;
+using D_B_A_G.Virtual;
 using D_B_A_G.Characters;
 using D_B_A_G.MapObjects;
 
@@ -37,6 +37,7 @@ namespace D_B_A_G.Areas
         //Update
         public void update()
         {
+            draw(ROOT.spriteBatch);
         }
 
         //Draw all (call base.draw in children)
