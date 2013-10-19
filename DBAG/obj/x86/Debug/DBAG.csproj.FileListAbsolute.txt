@@ -1,0 +1,8 @@
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\DBAG\bin\WindowsGL\Debug\SDL.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\DBAG\bin\WindowsGL\Debug\Lidgren.Network.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\DBAG\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\DBAG\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\DBAG\bin\WindowsGL\Debug\Tao.Sdl.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\DBAG\obj\x86\Debug\DBAG.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\DBAG\obj\x86\Debug\DBAG.exe
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\DBAG\obj\x86\Debug\DBAG.pdb
