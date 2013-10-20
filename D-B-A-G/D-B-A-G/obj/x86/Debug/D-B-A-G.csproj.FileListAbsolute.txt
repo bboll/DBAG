@@ -18,3 +18,4 @@ C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Debug
 C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Debug\D-B-A-G.exe
 C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Debug\D-B-A-G.pdb
 C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Debug\D-B-A-G.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Debug\D-B-A-G.exe.config

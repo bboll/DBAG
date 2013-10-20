@@ -1,12 +1,12 @@
-﻿#region Using Statements
+﻿/*#region Using Statements
 using System;
 using System.Collections.Generic;
 using System.Linq;
-#endregion
+#endregion*/
 
 namespace D_B_A_G
 {
-#if WINDOWS || LINUX
+#if WINDOWS //|| LINUX
     /// <summary>
     /// The main class.
     /// </summary>
@@ -15,7 +15,7 @@ namespace D_B_A_G
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+        //[STAThread]
         static void Main()
         {
             using (var game = new Game1())

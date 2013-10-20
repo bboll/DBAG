@@ -1,6 +1,6 @@
 ﻿#region Using Statements
-using System;
-using System.Collections.Generic;
+//using System;
+//using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -65,8 +65,12 @@ namespace D_B_A_G
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            Hero = new Player(this.Content.Load<Texture2D>("roman"), 700, 300, true, true);
+            Hero = new Player(this.Content.Load<Texture2D>("male_walkcycle"), 700, 300, true, true);
             Hero.addTexture(this.Content.Load<Texture2D>("HEAD_robe_hood"));
+            Hero.addTexture(this.Content.Load<Texture2D>("TORSO_leather_armor_torso"));
+            Hero.addTexture(this.Content.Load<Texture2D>("BELT_Leather"));
+            Hero.addTexture(this.Content.Load<Texture2D>("male_pants"));
+            Hero.addTexture(this.Content.Load<Texture2D>("TORSO_leather_armor_shoulders"));
         }
 
         /// <summary>

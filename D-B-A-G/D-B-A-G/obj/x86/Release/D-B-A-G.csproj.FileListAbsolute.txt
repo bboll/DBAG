@@ -8,3 +8,15 @@ C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\Ta
 C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Release\ResolveAssemblyReference.cache
 C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Release\D-B-A-G.exe
 C:\cygwin\home\Brian\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Release\D-B-A-G.pdb
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Release\D-B-A-G.exe
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Release\D-B-A-G.pdb
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\SDL.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\D-B-A-G.exe
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\D-B-A-G.pdb
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\Lidgren.Network.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\MonoGame.Framework.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\OpenTK.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\Tao.Sdl.dll
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\obj\x86\Release\D-B-A-G.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\Dropbox\D-BAG\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\D-B-A-G.exe.config
+C:\cygwin\home\Brian\Dropbox\d-bag\DBAG\D-B-A-G\D-B-A-G\bin\WindowsGL\Release\D-B-A-G.exe.config
