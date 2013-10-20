@@ -170,13 +170,13 @@ namespace D_B_A_G.Virtual
             //possible just call animate
             drawHere.End();
             drawHere.Begin();
-            if(isAnimated) SpriteObj.animate(drawHere, sprite, velocity, pos + centerOffset);
+            if(isAnimated) SpriteObj.animate(drawHere, velocity, pos + centerOffset);
             else drawHere.Draw(sprite, pos + centerOffset, Color.White);
             drawHere.End();
         }
-        public void resize(int Width, int Height)
+        public void addTexture(Texture2D newTexture)
         {
-
+            SpriteObj.addTexture(newTexture);
         }
     }
 }

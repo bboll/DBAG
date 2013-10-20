@@ -68,10 +68,13 @@
       <Link>SDL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\alien.png" />
     <Content Include="Content\block.png" />
-    <Content Include="Content\female_walkcycle.png" />
+    <Content Include="Content\HEAD_robe_hood.png" />
     <Content Include="Content\ninja.png" />
+    <Content Include="Content\roman.png" />
     <Content Include="Content\TestMap.png" />
+    <Content Include="Content\zombie.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup />

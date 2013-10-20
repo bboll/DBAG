@@ -10,7 +10,8 @@ namespace D_B_A_G.Characters
 {
     public class SpriteSheet
     {
-        Texture2D m_texture;
+        Texture2D[] m_texture;
+        int numTextures;
         //Default frame, looking down stationary?
         public int facing = 2;
         public int m_currentFrame = 0;
@@ -22,15 +23,31 @@ namespace D_B_A_G.Characters
 
         public SpriteSheet(Texture2D texture, int spriteWidth, int spriteHeight)
         {
-            m_texture = texture;
+            m_texture = new Texture2D[1];
+            m_texture[0] = texture;
+            numTextures = 1;
             m_currentFrame = 0;
         }
 
-        public void animate(SpriteBatch spriteBatch, Texture2D texture, Vector2 velocity, Vector2 location)
+        public SpriteSheet(Texture2D[] texture, int num_Textures, int spriteWidth, int spriteHeight)
         {
-            //Update current velocity
             m_texture = texture;
+            numTextures = num_Textures;
+            m_currentFrame = 0;
+        }
 
+        public void addTexture(Texture2D newTexture)
+        {
+            numTextures += 1;
+            Texture2D[] temp = new Texture2D[numTextures];
+            for (int i = 0; i < numTextures - 1; ++i)
+                temp[i] = m_texture[i];
+            temp[numTextures - 1] = newTexture;
+            m_texture = temp;
+        }
+
+        public void animate(SpriteBatch spriteBatch, Vector2 velocity, Vector2 location)
+        {            
             //Get direction
             if (velocity.X > 0) facing = 3;
             else if (velocity.X < 0) facing = 1;
@@ -44,17 +61,17 @@ namespace D_B_A_G.Characters
             if (spriteTimer == 0)
             {
                 m_currentFrame += 1;
-                if (m_currentFrame * m_spriteWidth >= texture.Bounds.Width) m_currentFrame = 0;
+                if (m_currentFrame * m_spriteWidth >= m_texture[0].Bounds.Width) m_currentFrame = 0;
                 spriteTimer = 10;
             }
             else spriteTimer -= 1;
 
             //Set the origin up
-            m_origin = new Vector2(m_sourceRect.Width / 2, m_sourceRect.Height / 2);
+            m_origin = new Vector2(2, 9);
 
-            //Draw         
-            //spriteBatch.Draw(texture, location, m_sourceRect, Color.White, 0f, m_origin, 1.0f, SpriteEffects.None, 0);
-            spriteBatch.Draw(texture, location, m_sourceRect, Color.White);
+            //Draw 
+            for(int i=0; i<numTextures; ++i)
+                spriteBatch.Draw(m_texture[i], location, m_sourceRect, Color.White, 0.0f, m_origin, 1.3f, SpriteEffects.None, 0);
         }
     }
 }

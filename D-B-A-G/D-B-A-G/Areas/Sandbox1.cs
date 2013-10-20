@@ -51,7 +51,7 @@ namespace D_B_A_G.Areas
         //Load content for the level
         public void loadContent()
         {
-            OtherNinja = new CollisionObject(ROOT.Content.Load<Texture2D>("ninja"), 300, 550);
+            OtherNinja = new CollisionObject(ROOT.Content.Load<Texture2D>("zombie"), 300, 550, true, true);
             PushMe = new CollisionObject(ROOT.Content.Load<Texture2D>("block"), 500, 420);
             mapObject = new Map(ROOT.Content.Load<Texture2D>("TestMap"), 0, 0);
         }

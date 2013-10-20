@@ -24,7 +24,7 @@ namespace D_B_A_G.Characters
             velocity.Y = 0;
             isSolid = Solid;
             isAnimated = animated;
-
+            
             //Set the sprite
             sprite = Sprite;
 

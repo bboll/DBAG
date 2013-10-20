@@ -27,9 +27,6 @@ namespace D_B_A_G
         //Put "global" objects here
         public Player Hero;
         public Sandbox1 SandboxLevel1;
-        //CollisionObject OtherNinja;
-        //CollisionObject PushMe;
-        //Map testMap;
 
         public Game1()
             : base()
@@ -56,20 +53,6 @@ namespace D_B_A_G
         {  
             base.Initialize();
             SandboxLevel1.initialize();
-            //Make the character stay on the screen
-            //Hero.restrictDomain = true;
-            //Hero.domain = new Vector4(0, 0, 1000, 800);
-            //PushMe.restrictDomain = true;
-            //PushMe.domain = new Vector4(0, 0, 1000, 800);
-            //OtherNinja.velocity.X = -1;
-
-            //Make the map collision
-            //testMap.Walls = new CollisionObject[4];
-            //testMap.numWalls = 4;
-            //testMap.Walls[0] = new CollisionObject(550, 25, 140, 395);
-            //testMap.Walls[1] = new CollisionObject(38, 380, 325, 122);
-            //testMap.Walls[2] = new CollisionObject(40, 475, 670, 355);
-            //testMap.Walls[3] = new CollisionObject(200, 320, 850, 720);
         }
 
         /// <summary>
@@ -82,7 +65,8 @@ namespace D_B_A_G
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            Hero = new Player(this.Content.Load<Texture2D>("female_walkcycle"), 700, 300, true, true);
+            Hero = new Player(this.Content.Load<Texture2D>("roman"), 700, 300, true, true);
+            Hero.addTexture(this.Content.Load<Texture2D>("HEAD_robe_hood"));
         }
 
         /// <summary>
