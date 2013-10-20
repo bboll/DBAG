@@ -85,19 +85,30 @@
       <Link>SDL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\alien.png" />
-    <Content Include="Content\BELT_leather.png" />
-    <Content Include="Content\block.png" />
-    <Content Include="Content\HEAD_robe_hood.png" />
-    <Content Include="Content\male_pants.png" />
-    <Content Include="Content\male_walkcycle.png" />
-    <Content Include="Content\ninja.png" />
-    <Content Include="Content\roman.png" />
-    <Content Include="Content\TestMap.png" />
-    <Content Include="Content\TORSO_leather_armor_bracers.png" />
-    <Content Include="Content\TORSO_leather_armor_shoulders.png" />
-    <Content Include="Content\TORSO_leather_armor_torso.png" />
-    <Content Include="Content\zombie.png" />
+    <Content Include="Content\Attacks\Clothing\BELT_leather.png" />
+    <Content Include="Content\Attacks\Clothing\FEET_shoes_brown.png" />
+    <Content Include="Content\Attacks\Clothing\HEAD_robe_hood.png" />
+    <Content Include="Content\Attacks\Clothing\male_slash_pants.png" />
+    <Content Include="Content\Attacks\male_slash.png" />
+    <Content Include="Content\Attacks\Clothing\TORSO_leather_armor_bracers.png" />
+    <Content Include="Content\Attacks\Clothing\TORSO_leather_armor_shoulders.png" />
+    <Content Include="Content\Attacks\Clothing\TORSO_leather_armor_torso.png" />
+    <Content Include="Content\Attacks\Weapons\WEAPON_bow.png" />
+    <Content Include="Content\Attacks\Weapons\WEAPON_dagger.png" />
+    <Content Include="Content\Characters\alien.png" />
+    <Content Include="Content\Clothing\BELT_leather.png" />
+    <Content Include="Content\Clothing\FEET_shoes_brown.png" />
+    <Content Include="Content\Clothing\HEAD_robe_hood.png" />
+    <Content Include="Content\Objects\block.png" />
+    <Content Include="Content\Clothing\male_pants.png" />
+    <Content Include="Content\Characters\male_walkcycle.png" />
+    <Content Include="Content\Characters\ninja.png" />
+    <Content Include="Content\Characters\roman.png" />
+    <Content Include="Content\Terrain\TestMap.png" />
+    <Content Include="Content\Clothing\TORSO_leather_armor_bracers.png" />
+    <Content Include="Content\Clothing\TORSO_leather_armor_shoulders.png" />
+    <Content Include="Content\Clothing\TORSO_leather_armor_torso.png" />
+    <Content Include="Content\Characters\zombie.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +136,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

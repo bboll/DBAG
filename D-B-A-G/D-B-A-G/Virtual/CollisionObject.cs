@@ -16,7 +16,9 @@ namespace D_B_A_G.Virtual
         public Vector2 velocity;
         public bool isSolid;
         public bool isAnimated;
+        public bool isAttacking = false;
         public Texture2D sprite;
+        public Texture2D attacksprite;
         public Vector4 domain;
         public bool restrictDomain;
         public SpriteSheet SpriteObj;
@@ -170,13 +172,17 @@ namespace D_B_A_G.Virtual
             //possible just call animate
             drawHere.End();
             drawHere.Begin();
-            if(isAnimated) SpriteObj.animate(drawHere, velocity, pos + centerOffset);
+            if(isAnimated) SpriteObj.animate(drawHere, velocity, pos + centerOffset, isAttacking);
             else drawHere.Draw(sprite, pos + centerOffset, Color.White);
             drawHere.End();
         }
         public void addTexture(Texture2D newTexture)
         {
             SpriteObj.addTexture(newTexture);
+        }
+        public void addAttackTexture(Texture2D newTexture)
+        {
+            SpriteObj.addAttackTexture(newTexture);
         }
     }
 }
