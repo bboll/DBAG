@@ -23,7 +23,7 @@ namespace D_B_A_G
     {
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
-        
+
         //Put "global" objects here
         public Player Hero;
         public Sandbox1 SandboxLevel1;
@@ -68,25 +68,38 @@ namespace D_B_A_G
             Texture2D[] tempArray = new Texture2D[2];
             tempArray[0] = this.Content.Load<Texture2D>("Attacks/male_slash");
             tempArray[1] = this.Content.Load<Texture2D>("Attacks/male_bow");
-            Hero = new Player(this.Content.Load<Texture2D>("Characters/male_walkcycle"), tempArray, 700, 300, true, true);
+            Hero = new Player(this.Content.Load<Texture2D>("Characters/male_walkcycle"), tempArray, 2, 700, 300, true, true);
 
             //Add clothing
             Hero.addTexture(this.Content.Load<Texture2D>("Clothing/HEAD_robe_hood"));
             Hero.addTexture(this.Content.Load<Texture2D>("Clothing/TORSO_leather_armor_torso"));
+            Hero.addTexture(this.Content.Load<Texture2D>("Clothing/TORSO_leather_armor_bracers"));
             Hero.addTexture(this.Content.Load<Texture2D>("Clothing/BELT_Leather"));
-            Hero.addTexture(this.Content.Load<Texture2D>("Clothing/male_pants"));
+            //Hero.addTexture(this.Content.Load<Texture2D>("Clothing/male_pants"));
             Hero.addTexture(this.Content.Load<Texture2D>("Clothing/TORSO_leather_armor_shoulders"));
             Hero.addTexture(this.Content.Load<Texture2D>("Clothing/FEET_shoes_brown"));
 
-            //Add attack clothing
-            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/HEAD_robe_hood"));
-            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/TORSO_leather_armor_torso"));
-            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/BELT_Leather"));
-            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/male_slash_pants"));
-            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/TORSO_leather_armor_shoulders"));
-            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/FEET_shoes_brown"));
-            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Weapons/WEAPON_dagger"));
-            //Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Weapons/WEAPON_bow"));
+            //Add dagger attack clothing
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Dagger/HEAD_robe_hood"), 0);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Dagger/TORSO_leather_armor_torso"), 0);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Dagger/TORSO_leather_armor_bracers"), 0);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Dagger/BELT_Leather"), 0);
+            //Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Dagger/male_slash_pants"), 0);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Dagger/TORSO_leather_armor_shoulders"), 0);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Dagger/FEET_shoes_brown"), 0);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Weapons/WEAPON_dagger"), 0);
+
+            //Add bow attack clothing
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Bow/HEAD_robe_hood"), 1);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Bow/TORSO_leather_armor_torso"), 1);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Bow/TORSO_leather_armor_bracers"), 1);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Bow/BELT_Leather"), 1);
+            //Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Bow/male_slash_pants"), 1);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Bow/TORSO_leather_armor_shoulders"), 1);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Clothing/Bow/FEET_shoes_brown"), 1);
+            Hero.addAttackTexture(this.Content.Load<Texture2D>("Attacks/Weapons/WEAPON_bow"), 1);
+
+
         }
 
         /// <summary>

@@ -10,12 +10,15 @@ namespace D_B_A_G.Virtual
 {
     public class CollisionObject
     {
+        public float scale = 1.3f;
         public int height;
         public int width;
         public Vector2 pos;
         public Vector2 velocity;
+        public int health=0;
         public bool isSolid;
         public bool isAnimated;
+        public bool isAlive;
         public bool isAttacking = false;
         public Texture2D sprite;
         public Texture2D attacksprite;
@@ -24,7 +27,7 @@ namespace D_B_A_G.Virtual
         public SpriteSheet SpriteObj;
 
         //Helpers
-        protected Vector2 centerOffset;
+        public Vector2 centerOffset;
        
         //==============================================================================================================Constructors
         public CollisionObject()
@@ -36,7 +39,7 @@ namespace D_B_A_G.Virtual
             isSolid = true;
             isAnimated = false;
         }
-        public CollisionObject(int Height, int Width, int X = 0, int Y = 0, bool Solid = true, bool animated = false)
+        public CollisionObject(int Height, int Width, int X = 0, int Y = 0, bool Solid = true, bool animated = false, float Scale = 1.3f)
         {
             //Set basic elements
             height = Height;
@@ -45,14 +48,15 @@ namespace D_B_A_G.Virtual
             pos.Y = Y;
             isSolid = Solid;
             isAnimated = animated;
+            scale = Scale;
 
             //Construct Sprite object
             SpriteObj = new SpriteSheet(sprite, width, height);
 
             if (isAnimated)
             {
-                height = SpriteObj.m_spriteHeight;
-                width = SpriteObj.m_spriteWidth;
+                height = (int)(SpriteObj.m_spriteHeight * scale);
+                width = (int)(SpriteObj.m_spriteWidth * scale);
             }
 
             //Set domain restrictions
@@ -63,7 +67,7 @@ namespace D_B_A_G.Virtual
             centerOffset.Y = (-1) * (height / 2);
 
         }
-        public CollisionObject(Texture2D Sprite, int X = 0, int Y = 0, bool Solid = true, bool animated = false)
+        public CollisionObject(Texture2D Sprite, int X = 0, int Y = 0, bool Solid = true, bool animated = false, float Scale = 1.3f)
         {
             //Set basic elements
             height = Sprite.Bounds.Height;
@@ -72,6 +76,8 @@ namespace D_B_A_G.Virtual
             pos.Y = Y;
             isSolid = Solid;
             isAnimated = animated;
+            isAlive = true;
+            scale = Scale;
 
             //Set the sprite
             sprite = Sprite;
@@ -81,14 +87,21 @@ namespace D_B_A_G.Virtual
 
             if (isAnimated)
             {
-                height = SpriteObj.m_spriteHeight;
-                width = SpriteObj.m_spriteWidth;
+                height = (int)(SpriteObj.m_spriteHeight * scale);
+                width = (int)(SpriteObj.m_spriteWidth * scale);
             }
 
             //Set the center
             centerOffset.X = (-1) * (width / 2);
             centerOffset.Y = (-1) * (height / 2);
 
+        }
+        public void dealtdamage(int damage)
+        {
+            health -= damage;
+            if(health < 0) health = 0;
+            if (health == 0) isAlive = false;
+            else isAlive = true;
         }
 
         //===============================================================================================================Collision functions
@@ -172,7 +185,7 @@ namespace D_B_A_G.Virtual
             //possible just call animate
             drawHere.End();
             drawHere.Begin();
-            if(isAnimated) SpriteObj.animate(drawHere, velocity, pos + centerOffset, isAttacking);
+            if(isAnimated) SpriteObj.animate(drawHere, velocity, pos + centerOffset, isAttacking, scale);
             else drawHere.Draw(sprite, pos + centerOffset, Color.White);
             drawHere.End();
         }
@@ -180,9 +193,9 @@ namespace D_B_A_G.Virtual
         {
             SpriteObj.addTexture(newTexture);
         }
-        public void addAttackTexture(Texture2D newTexture)
+        public void addAttackTexture(Texture2D newTexture, int attackIndex)
         {
-            SpriteObj.addAttackTexture(newTexture);
+            SpriteObj.addAttackTexture(newTexture, attackIndex);
         }
     }
 }

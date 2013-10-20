@@ -62,7 +62,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Weapons\ThrowingStar.cs" />
+    <Compile Include="Weapons\Projectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">
@@ -85,17 +85,28 @@
       <Link>SDL.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Attacks\Clothing\BELT_leather.png" />
-    <Content Include="Content\Attacks\Clothing\FEET_shoes_brown.png" />
-    <Content Include="Content\Attacks\Clothing\HEAD_robe_hood.png" />
-    <Content Include="Content\Attacks\Clothing\male_slash_pants.png" />
+    <Content Include="Content\Attacks\Clothing\Bow\BELT_leather.png" />
+    <Content Include="Content\Attacks\Clothing\Bow\FEET_shoes_brown.png" />
+    <Content Include="Content\Attacks\Clothing\Bow\HEAD_robe_hood.png" />
+    <Content Include="Content\Attacks\Clothing\Bow\TORSO_leather_armor_bracers.png" />
+    <Content Include="Content\Attacks\Clothing\Bow\TORSO_leather_armor_shoulders.png" />
+    <Content Include="Content\Attacks\Clothing\Bow\TORSO_leather_armor_torso.png" />
+    <Content Include="Content\Attacks\Clothing\Dagger\BELT_leather.png" />
+    <Content Include="Content\Attacks\Clothing\Dagger\FEET_shoes_brown.png" />
+    <Content Include="Content\Attacks\Clothing\Dagger\HEAD_robe_hood.png" />
+    <Content Include="Content\Attacks\Clothing\Dagger\male_slash_pants.png" />
     <Content Include="Content\Attacks\male_slash.png" />
-    <Content Include="Content\Attacks\Clothing\TORSO_leather_armor_bracers.png" />
-    <Content Include="Content\Attacks\Clothing\TORSO_leather_armor_shoulders.png" />
-    <Content Include="Content\Attacks\Clothing\TORSO_leather_armor_torso.png" />
+    <Content Include="Content\Attacks\Clothing\Dagger\TORSO_leather_armor_bracers.png" />
+    <Content Include="Content\Attacks\Clothing\Dagger\TORSO_leather_armor_shoulders.png" />
+    <Content Include="Content\Attacks\Clothing\Dagger\TORSO_leather_armor_torso.png" />
+    <Content Include="Content\Attacks\Weapons\Arrow_Down.png" />
+    <Content Include="Content\Attacks\Weapons\Arrow_Left.png" />
+    <Content Include="Content\Attacks\Weapons\Arrow_Right.png" />
+    <Content Include="Content\Attacks\Weapons\Arrow_Up.png" />
     <Content Include="Content\Attacks\Weapons\WEAPON_bow.png" />
     <Content Include="Content\Attacks\Weapons\WEAPON_dagger.png" />
     <Content Include="Content\Characters\alien.png" />
+    <Content Include="Content\Characters\demon.png" />
     <Content Include="Content\Clothing\BELT_leather.png" />
     <Content Include="Content\Clothing\FEET_shoes_brown.png" />
     <Content Include="Content\Clothing\HEAD_robe_hood.png" />

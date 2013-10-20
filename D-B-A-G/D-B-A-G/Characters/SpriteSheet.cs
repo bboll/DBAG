@@ -10,12 +10,15 @@ namespace D_B_A_G.Characters
 {
     public class SpriteSheet
     {
+        //Bad Idea
+        public bool canFireArrow = false;
+
         Texture2D[] m_texture;
         Texture2D[] m_attacks;
-        Texture2D[] m_attackTextures;
+        Texture2D[][] m_attackTextures;
         int numTextures;
         int numAttacks;
-        int numAttackTextures;
+        int[] numAttackTextures;
         public int currentAttack;
         public int facing = 2;
         public int m_currentFrame = 0;
@@ -44,21 +47,30 @@ namespace D_B_A_G.Characters
             m_texture[0] = texture;
             numTextures = 1;
             m_attacks = new Texture2D[1];
-            m_attackTextures = new Texture2D[0];
+            m_attackTextures = new Texture2D[1][];
+            m_attackTextures[0] = new Texture2D[1];
             numAttacks = 1;
-            numAttackTextures = 0;
+            numAttackTextures = new int[1];
+            numAttackTextures[0] = 0;
             m_attacks = attacks;
             m_currentFrame = 0;
         }
 
-        public SpriteSheet(Texture2D[] texture, Texture2D[] attacks, int num_attacks, int num_Textures, int spriteWidth, int spriteHeight)
+        public SpriteSheet(Texture2D texture, Texture2D[] attacks, int num_attacks, int spriteWidth, int spriteHeight)
         {
-            m_texture = texture;
-            numTextures = num_Textures;
-            m_attacks = new Texture2D[1];
+            m_texture = new Texture2D[1];
+            m_texture[0] = texture;
+            numTextures = 1;
             numAttacks = num_attacks;
-            m_attackTextures = new Texture2D[0];
-            m_attacks[0] = attacks[0];
+            m_attacks = new Texture2D[numAttacks];
+            m_attackTextures = new Texture2D[numAttacks][];
+            m_attackTextures[0] = new Texture2D[1];
+            numAttackTextures = new int[numAttacks];
+            for (int i = 0; i < numAttacks; ++i)
+            {
+                numAttackTextures[i] = 0;
+                m_attacks[i] = attacks[i];
+            }
             m_currentFrame = 0;
         }
 
@@ -71,18 +83,21 @@ namespace D_B_A_G.Characters
             temp[numTextures - 1] = newTexture;
             m_texture = temp;
         }
-        public void addAttackTexture(Texture2D newTexture)
+        public void addAttackTexture(Texture2D newTexture, int attackIndex)
         {
-            numAttackTextures += 1;
-            Texture2D[] temp = new Texture2D[numAttackTextures];
-            for (int i = 0; i < numAttackTextures - 1; ++i)
-                temp[i] = m_attackTextures[i];
-            temp[numAttackTextures - 1] = newTexture;
-            m_attackTextures = temp;
+            numAttackTextures[attackIndex] += 1;
+            Texture2D[] temp = new Texture2D[numAttackTextures[attackIndex]];
+            for (int i = 0; i < numAttackTextures[attackIndex] - 1; ++i)
+                temp[i] = m_attackTextures[attackIndex][i];
+            temp[numAttackTextures[attackIndex] - 1] = newTexture;
+            m_attackTextures[attackIndex] = temp;
         }
 
-        public void animate(SpriteBatch spriteBatch, Vector2 velocity, Vector2 location, bool isAttacking = false)
+        public void animate(SpriteBatch spriteBatch, Vector2 velocity, Vector2 location, bool isAttacking = false, float scale = 1.3f)
         {            
+            //Allow arrow to fire
+            canFireArrow = (m_attackFrame == 9 && attacktimer == 9);           
+
             //Get direction
             if (velocity.X > 0) facing = 3;
             else if (velocity.X < 0) facing = 1;
@@ -109,28 +124,23 @@ namespace D_B_A_G.Characters
             {
                 //Draw 
                 for (int i = 0; i < numTextures; ++i)
-                    spriteBatch.Draw(m_texture[i], location, m_sourceRect, Color.White, 0.0f, m_origin, 1.3f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(m_texture[i], location, m_sourceRect, Color.White, 0.0f, m_origin, scale, SpriteEffects.None, 0);
             }
             else
-            {
-               // if (velocity.X == 0 && velocity.Y == 0)
-                //{
-                    //attacktimer = 0;      // instantiates your timer for each (float)
-                    if(attacktimer == 0)
-                    {
-                      m_attackFrame += 1;
-                      if (m_attackFrame * m_spriteWidth >= m_attacks[currentAttack].Bounds.Width) m_attackFrame = 0;
-                      attacktimer = 9;
-                    }
-                    else { attacktimer -= 1; }
+            {               
+                if(attacktimer == 0)
+                {
+                    m_attackFrame += 1;
+                    if (m_attackFrame * m_spriteWidth >= m_attacks[currentAttack].Bounds.Width) m_attackFrame = 0;
+                    attacktimer = 9;
+                }
+                else { attacktimer -= 1; }
 
-                    m_sourceRect = new Rectangle(m_attackFrame * m_spriteWidth, facing * m_spriteHeight, m_spriteWidth, m_spriteHeight);
-                    spriteBatch.Draw(m_attacks[currentAttack], location, m_sourceRect, Color.White, 0.0f, m_origin, 1.3f, SpriteEffects.None, 0);
-                    //m_sourceRect.X = 0;
-                    for (int i = 0; i < numAttackTextures; ++i)
-                        spriteBatch.Draw(m_attackTextures[i], location, m_sourceRect, Color.White, 0.0f, m_origin, 1.3f, SpriteEffects.None, 0);
-               // }
-                //Need to handle isAttacking and trying to mode at the same time, otherwise NO DRAW
+                m_sourceRect = new Rectangle(m_attackFrame * m_spriteWidth, facing * m_spriteHeight, m_spriteWidth, m_spriteHeight);
+                spriteBatch.Draw(m_attacks[currentAttack], location, m_sourceRect, Color.White, 0.0f, m_origin, scale, SpriteEffects.None, 0);
+
+                for (int i = 0; i < numAttackTextures[currentAttack]; ++i)
+                    spriteBatch.Draw(m_attackTextures[currentAttack][i], location, m_sourceRect, Color.White, 0.0f, m_origin, scale, SpriteEffects.None, 0);
             }
         }
     }

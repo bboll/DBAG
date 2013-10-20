@@ -13,7 +13,7 @@ namespace D_B_A_G.Characters
     public class Player : CollisionObject
     {
         //Constructors
-        public Player(Texture2D Sprite, Texture2D[] AttackSprite, int X = 0, int Y = 0, bool Solid = true, bool animated = false)
+        public Player(Texture2D Sprite, Texture2D[] AttackSprite, int num_attacks, int X = 0, int Y = 0, bool Solid = true, bool animated = false)
         {
             //Set basic elements
             height = Sprite.Bounds.Height;
@@ -31,7 +31,7 @@ namespace D_B_A_G.Characters
 
 
             //Construct Sprite object
-            SpriteObj = new SpriteSheet(sprite, AttackSprite, width, height);
+            SpriteObj = new SpriteSheet(sprite, AttackSprite, num_attacks, width, height);
 
             if (isAnimated)
             {
@@ -42,7 +42,6 @@ namespace D_B_A_G.Characters
             //Set the center
             centerOffset.X = (-1) * (width / 2);
             centerOffset.Y = (-1) * (height / 2);
-
         }
 
         public new void update()
@@ -57,7 +56,7 @@ namespace D_B_A_G.Characters
                 SpriteObj.currentAttack = 0;
                 velocity *= 0;
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.NumPad0))
+            else if (Keyboard.GetState().IsKeyDown(Keys.RightShift))
             {
                 isAttacking = true;
                 SpriteObj.currentAttack = 1;
@@ -74,7 +73,7 @@ namespace D_B_A_G.Characters
             //Stop moving after keys are released
             if (Keyboard.GetState().IsKeyUp(Keys.Left) && Keyboard.GetState().IsKeyUp(Keys.Right)) velocity.X = 0;
             if (Keyboard.GetState().IsKeyUp(Keys.Up) && Keyboard.GetState().IsKeyUp(Keys.Down)) velocity.Y = 0;
-            if (Keyboard.GetState().IsKeyUp(Keys.RightControl) && Keyboard.GetState().IsKeyUp(Keys.NumPad0)) isAttacking = false;
+            if (Keyboard.GetState().IsKeyUp(Keys.RightControl) && Keyboard.GetState().IsKeyUp(Keys.RightShift)) isAttacking = false;
 
             //Make the movement a constant speed (even on diagonals)
             if (velocity.X != 0 || velocity.Y != 0)
